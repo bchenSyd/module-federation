@@ -3,6 +3,7 @@ const webpack = require("webpack"); // only add this if you don't have yet
 const { ModuleFederationPlugin } = webpack.container;
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 require("dotenv").config({ path: "./.env" });
+const deps = require("./package.json").dependencies;
 
 const buildDate = new Date().toLocaleString();
 
@@ -72,8 +73,7 @@ module.exports = (env, argv) => {
             singleton: true,
             // when loading this container at host; load this shared module in the inital chunk, instead of async load using
             eager: true,
-
-            requiredVersion: "^18.2.0",
+            requiredVersion: deps["react"],
 
             // the fallback module if no shared module found in the shared scope or version isn't valid;
             import: false,
@@ -81,12 +81,12 @@ module.exports = (env, argv) => {
           "react-dom": {
             singleton: true,
             eager: true,
-            requiredVersion: "^18.2.0",
+            requiredVersion: deps["react-dom"],
           },
           "react-router-dom": {
             singleton: true,
             eager: true,
-            requiredVersion: "^6.4.2",
+            requiredVersion: deps["react-router-dom"],
           },
         },
       }),
