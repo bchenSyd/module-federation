@@ -13,8 +13,7 @@ module.exports = (env, argv) => {
     entry: "./src/index.ts",
     mode: process.env.NODE_ENV || "development",
     devServer: {
-      port: 3000,
-      open: true,
+      port: 8000,
       headers: {
         "Access-Control-Allow-Origin": "*",
       },

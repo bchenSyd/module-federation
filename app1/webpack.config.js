@@ -43,12 +43,7 @@ module.exports = {
           singleton: true,
           eager: true,
           requiredVersion: "^18.2.0",
-        },
-        "react-router-dom": {
-          singleton: true,
-          eager: true,
-          requiredVersion: "^6.4.2",
-        },
+        }
       },
     }),
     new HtmlWebpackPlugin({
