@@ -64,7 +64,20 @@ module.exports = (env, argv) => {
           app2: isProduction ? process.env.PROD_APP2 : process.env.DEV_APP2,
         },
         shared: {
-          react: { singleton: true, eager: true, requiredVersion: "^18.2.0" },
+          // this is the shared scope
+          react: {
+            /*This hint only allows a single version of the shared module in the shared scope (disabled by default). 
+          Some libraries use a global internal state (e.g. react, react-dom). 
+          Thus, it is critical to have only one instance of the library running at a time.*/
+            singleton: true,
+            // when loading this container at host; load this shared module in the inital chunk, instead of async load using
+            eager: true,
+
+            requiredVersion: "^18.2.0",
+
+            // the fallback module if no shared module found in the shared scope or version isn't valid;
+            import: false,
+          },
           "react-dom": {
             singleton: true,
             eager: true,

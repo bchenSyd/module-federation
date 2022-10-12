@@ -25,14 +25,20 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "app1",
+      name: "app1", //<-------------  remote chunk(module collection) name;
       filename: "remoteEntry.js",
       exposes: {
         // expose each component
         "./CounterAppOne": "./src/components/CounterAppOne",
       },
       shared: {
-        react: { singleton: true, eager: true, requiredVersion: "^18.2.0" },
+        // Shared modules are modules that are both overridable and provided as overrides to nested container. 
+        // They usually point to the same module in each build, e.g. the same library.
+        react: {
+          singleton: true /* only a single version, or a single instance is allowed */,
+          eager: true, /* access this module on initial load of this chunk*/
+          requiredVersion: "^18.2.0",
+        },
         "react-dom": {
           singleton: true,
           eager: true,
