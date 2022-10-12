@@ -23,7 +23,7 @@
 		"webpack-dev-server": "^4.7.3"
 	},
 	"scripts": {
-		"start": "webpack serve",
+		"start": "webpack serve --no-open",
 		"build": "webpack --mode development",
 		"serve": "serve dist -p 3000",
 		"clean": "rm -rf dist"
