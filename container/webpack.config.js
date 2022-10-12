@@ -63,19 +63,19 @@ module.exports = (env, argv) => {
           app1: isProduction ? process.env.PROD_APP1 : process.env.DEV_APP1,
           app2: isProduction ? process.env.PROD_APP2 : process.env.DEV_APP2,
         },
-        // shared: {
-        //   react: { singleton: true, eager: true, requiredVersion: "^18.2.0" },
-        //   "react-dom": {
-        //     singleton: true,
-        //     eager: true,
-        //     requiredVersion: "^18.2.0",
-        //   },
-        //   "react-router-dom": {
-        //     singleton: true,
-        //     eager: true,
-        //     requiredVersion: "^6.4.2",
-        //   },
-        // },
+        shared: {
+          react: { singleton: true, eager: true, requiredVersion: "^18.2.0" },
+          "react-dom": {
+            singleton: true,
+            eager: true,
+            requiredVersion: "^18.2.0",
+          },
+          "react-router-dom": {
+            singleton: true,
+            eager: true,
+            requiredVersion: "^6.4.2",
+          },
+        },
       }),
       new HtmlWebpackPlugin({
         template: "./public/index.html",
