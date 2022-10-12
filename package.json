@@ -8,7 +8,8 @@
 		]
 	},
 	"scripts": {
-		"start": "lerna run --parallel start",
+		"start-remote": "lerna run --parallel  --scope app1 --scope app2  start",
+		"start-container": "lerna run --scope container start",
 		"build": "lerna run build",
 		"serve": "lerna run --parallel serve",
 		"clean": "lerna run --parallel clean",
