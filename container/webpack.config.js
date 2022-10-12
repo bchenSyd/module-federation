@@ -60,8 +60,8 @@ module.exports = (env, argv) => {
       new ModuleFederationPlugin({
         name: "container_bochen",
         remotes: {
-          app1: isProduction ? process.env.PROD_APP1 : process.env.DEV_APP1,
-          app2: isProduction ? process.env.PROD_APP2 : process.env.DEV_APP2,
+          header: process.env.DEV_HEADER,
+          app2: process.env.DEV_APP2,
         },
         shared: {
           // this is the shared scope

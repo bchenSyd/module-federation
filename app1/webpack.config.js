@@ -25,11 +25,12 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "app1", //<-------------  remote chunk(module collection) name;
+      name: "header", //<-------------  remote chunk(module collection) name;
       filename: "remoteEntry.js",
       exposes: {
         // expose each component
         "./CounterAppOne": "./src/components/CounterAppOne",
+        "./MarsHeader": "./src/components/Header",
       },
       shared: {
         // Shared modules are modules that are both overridable and provided as overrides to nested container. 

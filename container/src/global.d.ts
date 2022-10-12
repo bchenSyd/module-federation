@@ -1,6 +1,6 @@
 ///<reference types="react" />
 
-declare module "app1/CounterAppOne" {
+declare module "header/CounterAppOne" {
 	const CounterAppOne: React.ComponentType;
 
 	export default CounterAppOne;

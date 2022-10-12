@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { ContainerApp } from "./components/ContainerApp";
 
-const CounterAppOne = React.lazy(() => import("app1/CounterAppOne"));
+const CounterAppOne = React.lazy(() => import("header/CounterAppOne"));
 const CounterAppTwo = React.lazy(() => import("app2/CounterAppTwo"));
 
 const App = () => (
